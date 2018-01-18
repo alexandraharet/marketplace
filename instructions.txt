@@ -8,9 +8,7 @@ while developing.
 What we’ll evaluate
 ● You are free to use any JavaScript libraries and/or frameworks you want.
 However, an MVC/MVVM style framework is encouraged.
-● IE8support
-is NOT needed. You can develop the application only taking into
-consideration IE9+ browsers (with ES5 support).
+● IE8support is NOT needed. You can develop the application only taking into consideration IE9+ browsers (with ES5 support).
 ● The use of ES6 features is allowed and encouraged (but you should use a
 transpiler to produce ES5 valid JavaScript).
 ● The use of CSS processors (Sass, LESS...) is allowed and encouraged.
