@@ -1,14 +1,14 @@
 <section>
-  <div class="container">
+  <div class="container" (scroll)="onScroll($event)">
     <div class="card" *ngFor="let item of visibleItems">
       <div class="row ">
         <div class="col-md-4">
-          <div class="card-img" [ngStyle]="{'background-image': 'url(./assets/images/' + item.image +')' }"></div>
+          <!-- <div class="card-img" [ngStyle]="{'background-image': 'url(./assets/images/' + item.image +')' }"></div> -->
           <!-- <img class="card-img" src="./assets/images/{{item.image}}" alt="{{item.title}}" /> -->
         </div>
         <div class="col-md-8 px-3">
           <div class="card-block">
-            <h4 class="card-title">{{item.title}}</h4>
+            <!-- <h4 class="card-title">{{item.title}}</h4> -->
             <p class="card-text">{{item.description}}</p>
             <p class="price">Price: &euro;<strong>{{item.price}}</strong></p>
             <p class="email">Email: <a href="mailto: {{item.email}}">{{item.email}}</a> </p>
@@ -16,5 +16,7 @@
         </div>
       </div>
     </div>
+
+    <div class="loader" *ngIf="loading"></div>
   </div>
 </section>

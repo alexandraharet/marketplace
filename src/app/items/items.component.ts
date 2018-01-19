@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener  } from '@angular/core';
 import { Http, Response, HttpModule } from '@angular/http';
-import { NgStyle } from '@angular/common';
+import { NgStyle, NgIf } from '@angular/common';
+// import { scrollDetect } from 'scroll-detect';
 
 @Component({
   selector: 'app-items',
@@ -14,14 +15,10 @@ export class ItemsComponent implements OnInit {
   pageLimit = 5;
   pagesShown = 1;
   limit = 0;
+  loading = false;
 
-  getData() {
-    this.http.request('./assets/items.json')
-    .subscribe((res: Response) => {
-      const data  = res.json();
-      this.items = data.items;
-      console.log(this.items);
-    });
+  fetchData() {
+    return this.http.request("./assets/items.json");
   }
 
   displayPage() {
@@ -33,8 +30,15 @@ export class ItemsComponent implements OnInit {
     private http: Http ) {}
 
     ngOnInit() {
-      this.getData();
-      this.displayPage();
+      this.fetchData().subscribe((res: Response) => {
+        const data = res.json();
+        this.items = data.items;
+        this.displayPage();
+      });
     }
 
+    @HostListener('mousewheel') onHover() {
+      // implement fallbacks for other blrowsers:
+      console.log('triggered');
+    }
   }
