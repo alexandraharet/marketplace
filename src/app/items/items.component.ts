@@ -16,6 +16,7 @@ export class ItemsComponent implements OnInit {
   pagesShown = 1;
   limit = 0;
   loading = false;
+  pages = 0;
 
   fetchData() {
     return this.http.request("./assets/items.json");
@@ -24,16 +25,23 @@ export class ItemsComponent implements OnInit {
   displayPage() {
     this.limit = this.pageLimit * this.pagesShown;
     this.visibleItems = this.items.slice(0, this.limit);
+    this.loading = false;
   }
 
   loadNewPage() {
-    if ($(window).scrollTop() + $(window).height() === $(document).height()) {
-      this.endOfPage = true;
+    this.loading = true;
+    console.log('here, windowHeight + scrollTop === docHeight:' + (windowHeight + scrollTop === docHeight));
+    let windowHeight = document.documentElement.clientHeight;
+    let scrollTop = document.documentElement.scrollTop;
+    let docHeight = document.documentElement.scrollHeight;
+
+    if (windowHeight + scrollTop === docHeight) {
+      // this.endOfPage = true;
       console.log('triggered');
       setTimeout(() => {
+        this.loading = false;
         this.pagesShown++;
         this.displayPage();
-        this.loading = false;
       }, 1000);
     };
   }
@@ -50,7 +58,7 @@ export class ItemsComponent implements OnInit {
     }
 
     @HostListener('mousewheel') onScroll() {
-      if (this.visibleItems.length < this.items.length) {
+      if (this.visibleItems.length < this.items.length && !this.loading) {
         this.loadNewPage();
       }
     }
