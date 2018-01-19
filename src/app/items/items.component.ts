@@ -9,7 +9,7 @@ import { NgStyle, NgIf } from '@angular/common';
   styleUrls: ['./items.component.scss']
 })
 export class ItemsComponent implements OnInit {
-
+ 
   items: Array<any>;
   visibleItems: Array<any>;
   pageLimit = 5;
