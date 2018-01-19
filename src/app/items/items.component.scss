@@ -1,5 +1,9 @@
 @import "loader";
 
+.itemsContainer {
+    padding-bottom: 50px;
+}
+
 .card {
     margin: 20px 0;
     .card-img {
@@ -12,12 +16,10 @@
     .price {
         font-weight: bold;
     }
-
     .email {
         text-decoration: none;
         font-weight: bold;
     }
-
 }
 
 @media (min-width: 768px) {

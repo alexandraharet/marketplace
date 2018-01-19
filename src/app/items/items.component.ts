@@ -26,6 +26,18 @@ export class ItemsComponent implements OnInit {
     this.visibleItems = this.items.slice(0, this.limit);
   }
 
+  loadNewPage() {
+    if ($(window).scrollTop() + $(window).height() === $(document).height()) {
+      this.endOfPage = true;
+      console.log('triggered');
+      setTimeout(() => {
+        this.pagesShown++;
+        this.displayPage();
+        this.loading = false;
+      }, 1000);
+    };
+  }
+
   constructor(
     private http: Http ) {}
 
@@ -37,8 +49,9 @@ export class ItemsComponent implements OnInit {
       });
     }
 
-    @HostListener('mousewheel') onHover() {
-      // implement fallbacks for other blrowsers:
-      console.log('triggered');
+    @HostListener('mousewheel') onScroll() {
+      if (this.visibleItems.length < this.items.length) {
+        this.loadNewPage();
+      }
     }
   }

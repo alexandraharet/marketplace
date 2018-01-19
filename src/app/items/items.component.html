@@ -1,4 +1,4 @@
-<section>
+<section id="itemsContainer">
   <div class="container" (scroll)="onScroll($event)">
     <div class="card" *ngFor="let item of visibleItems">
       <div class="row ">
@@ -16,7 +16,6 @@
         </div>
       </div>
     </div>
-
     <div class="loader" *ngIf="loading"></div>
   </div>
 </section>
