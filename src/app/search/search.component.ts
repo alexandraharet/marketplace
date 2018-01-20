@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { Http, Response, HttpModule } from '@angular/http';
-import { SearchPipe } from './search.pipe';
 
 @Component({
   selector: 'app-search',

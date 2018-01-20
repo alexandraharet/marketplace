@@ -35,7 +35,6 @@ export class ItemsComponent implements OnInit {
   }
 
   loadNewPage() {
-    console.log('triggered');
     setTimeout(() => {
       this.loading = false;
       this.pagesShown++;
@@ -50,7 +49,6 @@ export class ItemsComponent implements OnInit {
 
   hasResults(val) {
     this.searchResults = val;
-    console.log(this.searchResults);
     return val;
   }
 

@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NgStyle, NgIf } from '@angular/common';
 
 @Component({
@@ -6,15 +6,10 @@ import { NgStyle, NgIf } from '@angular/common';
   templateUrl: './favourites.component.html',
   styleUrls: ['./favourites.component.scss']
 })
-export class FavouritesComponent implements OnChanges {
+export class FavouritesComponent {
   @Input() favourites: Array<any>;
 
   hasFavourites() {
-    console.log('triggered');
     return (this.favourites.length);
-  }
-
-  ngOnChanges() {
-    this.hasFavourites();
   }
 }
