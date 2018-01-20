@@ -1,0 +1,12 @@
+$mainColor: #1DC1A7;
+
+ .btn {
+     background-color: $mainColor;
+     color: #fff;
+     display: block;
+     margin: 20px auto 40px;
+     cursor: pointer;
+     &:hover {
+         background-color: darken($mainColor, 10%);
+     }
+ }

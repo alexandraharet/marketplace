@@ -7,20 +7,23 @@ import { AppComponent } from './app.component';
 import { ItemsComponent } from './items/items.component';
 import { SearchComponent } from './search/search.component';
 import { SearchPipe } from './search/search.pipe';
+import { FavouritesComponent } from './favourites/favourites.component';
+import { DataService } from './data.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemsComponent,
     SearchComponent,
-    SearchPipe
+    SearchPipe,
+    FavouritesComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

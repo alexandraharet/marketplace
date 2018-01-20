@@ -3,17 +3,18 @@
     <div class="row">
       <div class="col">
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search for..." [(ngModel)]="searchString" (keyup)="getSearchString($event)" />
+          <input type="text" class="form-control" placeholder="Search for..." id="search" (keyup)="getSearchString($event)"/>
+           <!-- [(ngModel)]="searchString" -->
           <!--  -->
           <span class="input-group-btn">
-            <button class="btn btn-default" type="button">Go!</button>
+            <button class="btn btn-default" type="button" (click)="getSearchString($event)">Go!</button>
           </span>
         </div>
       </div>
     </div>
   </div>
 
-    <div class="container" *ngIf="searchResults">
+    <div class="container" >
       <!-- (scroll)="onScroll($event)" -->
       <div class="card" *ngFor="let item of results">
         <div class="row">
@@ -23,7 +24,7 @@
           </div>
           <div class="col-md-8 px-3">
             <div class="card-block">
-              <!-- <h4 class="card-title">{{item.title}}</h4> -->
+              <h4 class="card-title">{{item.title}} <i class="fa fa-heart-o fav" aria-hidden="true" (click)="toggleFavourites(item, $event)"></i></h4>
               <p class="card-text">{{item.description}}</p>
               <p class="price">Price: &euro;
                 <strong>{{item.price}}</strong>
