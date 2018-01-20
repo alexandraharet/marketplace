@@ -1,5 +1,7 @@
+@import '../variables';
+
 .loader {
-  color: #1DC1A7;
+  color: $mainColor;
   font-size: 20px;
   margin: 100px auto;
   width: 1em;

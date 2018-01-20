@@ -47,10 +47,10 @@ In the favourite modal, I want to be able to
  ● search by title ●  and the possibility to
  ● remove the items from the favourite list without having to close the modal ● .
 
-The JSON with the items information contains 30 items.
- ● The 30 items should NOT be displayed all at once ● . I’d like to
- ● receive 5 items each time ●  (with
- ● an initial load of 5 when the page is loaded ● ), so some pagination method should be implemented to view the remaining items
+// DONE The JSON with the items information contains 30 items.
+// ● The 30 items should NOT be displayed all at once ● . I’d like to
+// ● receive 5 items each time ●  (with
+// ● an initial load of 5 when the page is loaded ● ), so some pagination method should be implemented to view the remaining items
 (clicking a button, with endless scroll... it’s up to you).
 
 Delivery requirements

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, } from '@angular/core';
+import { Http, Response, HttpModule } from '@angular/http';
+import { SearchPipe } from './search.pipe';
 
 @Component({
   selector: 'app-search',
@@ -6,15 +8,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  searchString: String = '';
+  @Output() searchResults: EventEmitter<any> = new EventEmitter();
+  searchString = '';
+  // searchResults = false;
+  items: Array<any>;
+  results: Array<any>;
 
-  constructor() { }
+  fetchData() {
+    return this.http.request('./assets/items.json');
+  }
 
-  ngOnInit() {}
+  constructor(private http: Http) { }
+
+  ngOnInit() {
+    this.results = [];
+    this.fetchData().subscribe((res: Response) => {
+      const data = res.json();
+      this.items = data.items;
+    });
+  }
 
   getSearchString(event) {
     if (event.target.value.length) {
-      console.log(event.target.value);
+      this.searchResults.emit(true);
+      this.searchString = event.target.value;
+      console.log(this.searchString);
     }
   }
 

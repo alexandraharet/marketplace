@@ -1,4 +1,5 @@
-@import "loader";
+@import 'loader';
+@import '../variables';
 
 .itemsContainer {
     padding-bottom: 50px;
@@ -21,7 +22,15 @@
         font-weight: bold;
     }
 }
-
+ .btn {
+     background-color: $mainColor;
+     color: #fff;
+     display: block;
+     margin: 20px auto 40px;
+     &:hover {
+         background-color: darken($mainColor, 10%);
+     }
+ }
 @media (min-width: 768px) {
     .card .card-img {
         border-radius: calc(.25rem - 1px) 0 0 calc(.25rem - 1px);
