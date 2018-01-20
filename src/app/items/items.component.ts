@@ -62,9 +62,6 @@ export class ItemsComponent implements OnInit {
     }
 
     this.displayItems();
-    
-    console.log(this.availableItems);
-    
   }
   
   getResults(val) {
