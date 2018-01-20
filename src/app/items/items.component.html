@@ -1,6 +1,8 @@
+<app-favourites></app-favourites>
+<app-search (hasResults)="hasResults($event)" (getResults)="getResults($event)" [items]="items"></app-search>
+
 <section id="itemsContainer">
-  <div class="container" *ngIf="!searchResults"> 
-     <!-- (scroll)="onScroll($event)" -->
+  <div class="container"> 
     <div class="card" *ngFor="let item of visibleItems">
       <div class="row">
         <div class="col-md-4">
@@ -9,7 +11,10 @@
         </div>
         <div class="col-md-8 px-3">
           <div class="card-block">
-            <!-- <h4 class="card-title">{{item.title}}</h4> -->
+            <h4 class="card-title">
+              {{item.title}}
+              <i class="fa fa-heart-o fav" aria-hidden="true" (click)="toggleFavourites(item, $event)"></i>
+            </h4>
             <p class="card-text">{{item.description}}</p>
             <p class="price">Price: &euro;<strong>{{item.price}}</strong></p>
             <p class="email">Email: <a href="mailto: {{item.email}}">{{item.email}}</a> </p>

@@ -1,7 +1,6 @@
-import { Component, OnInit, HostListener  } from '@angular/core';
+import { Component, OnInit, HostListener, Output, EventEmitter } from '@angular/core';
 import { Http, Response, HttpModule } from '@angular/http';
 import { NgStyle, NgIf } from '@angular/common';
-// import { scrollDetect } from 'scroll-detect';
 
 @Component({
   selector: 'app-items',
@@ -10,8 +9,11 @@ import { NgStyle, NgIf } from '@angular/common';
 })
 
 export class ItemsComponent implements OnInit {
+  @Output() setFavourites = new EventEmitter<Object>();
+
   data: Array<any>;
   items: Array<any>;
+  availableItems: Array<any>;
   visibleItems: Array<any>;
   pageLimit = 5;
   pagesShown = 1;
@@ -20,33 +22,49 @@ export class ItemsComponent implements OnInit {
   pages = 0;
   itemsLoaded = false;
   searchResults = false;
+  favourites = [];
 
   fetchData() {
     return this.http.request('./assets/items.json');
   }
 
-  displayPage() {
+  displayItems() {
     this.limit = this.pageLimit * this.pagesShown;
-    this.visibleItems = this.items.slice(0, this.limit);
+    this.visibleItems = this.availableItems.slice(0, this.limit);
     this.loading = false;
   }
 
   loadNewPage() {
-    // this.loading = true;
-    // const windowHeight = document.documentElement.clientHeight;
-    // const scrollTop = document.documentElement.scrollTop;
-    // const docHeight = document.documentElement.scrollHeight;
-    // console.log('here, windowHeight + scrollTop === docHeight:' + (windowHeight + scrollTop === docHeight));
-
-    // if (windowHeight + scrollTop === docHeight) {
-    // this.endOfPage = true;
     console.log('triggered');
     setTimeout(() => {
       this.loading = false;
       this.pagesShown++;
-      this.displayPage();
+      this.displayItems();
     }, 1000);
-    // };
+  }
+
+  getResults(val) {
+    this.availableItems = val;
+    this.displayItems();
+  }
+
+  hasResults(val) {
+    this.searchResults = val;
+    console.log(this.searchResults);
+    return val;
+  }
+
+  toggleFavourites(item, event) {
+    if (event.target.classList.contains('isFav')) {
+      const index = this.favourites.findIndex(k => item);
+      this.favourites.splice(index, 1);
+    } else {
+      this.favourites.push(item);
+      this.setFavourites.emit(this.favourites);
+    }
+    event.target.classList.toggle('isFav');
+    event.target.classList.toggle('fa-heart');
+    event.target.classList.toggle('fa-heart-o');
   }
 
   constructor( private http: Http ) {}
@@ -55,13 +73,14 @@ export class ItemsComponent implements OnInit {
     this.fetchData().subscribe((res: Response) => {
       const data = res.json();
       this.items = data.items;
+      this.availableItems = this.items;
       this.itemsLoaded = true;
-      this.displayPage();
+      this.displayItems();
     });
   }
 
   moreItemsToShow() {
-    return this.visibleItems.length < this.items.length;
+    return this.visibleItems.length < this.availableItems.length;
   }
 
   onClick() {
@@ -70,10 +89,4 @@ export class ItemsComponent implements OnInit {
       this.loadNewPage();
     }
   }
-
-  // @HostListener('mousewheel') onScroll() {
-  //   if (this.visibleItems.length < this.items.length && !this.loading) {
-  //     this.loadNewPage();
-  //   }
-  // }
 }
