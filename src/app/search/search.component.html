@@ -10,5 +10,12 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col">
+        <h4 *ngIf="!results.length && searched">
+          No results found!
+        </h4>
+      </div>
+    </div>
   </div>
 </section>

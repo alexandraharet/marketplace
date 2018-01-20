@@ -1,4 +1,5 @@
 @import '../theme';
+@import '../items/items.component';
 
 .container {
     text-align: center;
@@ -8,4 +9,23 @@
 .btn {
     margin-top: 0;
     margin-bottom: 40px;
+}
+
+.fav-w {
+    margin-left: 0.5rem;
+    color: #fff;
+}
+
+.noFavs {
+    margin: 40px auto;
+}
+
+.card .card-img {
+    min-height: 150px;
+}
+
+@media (min-width: 768px) {
+    .card .card-img {
+        min-height: 70px;
+    }
 }

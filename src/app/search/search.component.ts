@@ -13,6 +13,7 @@ export class SearchComponent {
   @Input() items: Array<any>;
   searchString: String;
   results = [];
+  searched = false;
   
   constructor(private http: Http) { }
   
@@ -34,16 +35,16 @@ export class SearchComponent {
   }
 
   getSearchString(event) {
-    this.searchString = document.getElementById('search')['value'];
-
+    this.searchString = document.getElementById('search')['value'].toLowerCase();
     if (event.keyCode === 13 || event.type === 'click') {
+      this.results = [];
       if (!this.searchString) {
-        this.results = [];
+        this.searched = false;
         this.getResults.emit(this.items);
       } else {
+        this.searched = true;
         this.filterItems(this.searchString);
       }
     }
-
   }
 }

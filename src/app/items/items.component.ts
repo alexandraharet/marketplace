@@ -9,7 +9,7 @@ import { NgStyle, NgIf } from '@angular/common';
 })
 
 export class ItemsComponent implements OnInit {
-  @Output() setFavourites = new EventEmitter<Object>();
+  @Output() getFavourites = new EventEmitter<Object>();
 
   data: Array<any>;
   items: Array<any>;
@@ -60,7 +60,7 @@ export class ItemsComponent implements OnInit {
       this.favourites.splice(index, 1);
     } else {
       this.favourites.push(item);
-      this.setFavourites.emit(this.favourites);
+      this.getFavourites.emit(this.favourites);
     }
     event.target.classList.toggle('isFav');
     event.target.classList.toggle('fa-heart');
