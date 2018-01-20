@@ -3,6 +3,16 @@
 
 <section id="itemsContainer">
   <div class="container"> 
+    <div class="row">
+      <div class="col text-right filters">
+        <p>Sort by:
+          <a (click)="sortBy('title')">Title</a> |
+          <a (click)="sortBy('description')">Description</a> |
+          <a (click)="sortBy('price')">Price</a> |
+          <a (click)="sortBy('email')">Email</a>
+        </p>
+      </div>
+    </div>
     <div class="card" *ngFor="let item of visibleItems">
       <div class="row">
         <div class="col-md-4">

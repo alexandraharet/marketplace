@@ -10,3 +10,14 @@ $mainColor: #1DC1A7;
         background-color: darken($mainColor, 10%);
     }
 }
+
+a, a:not([href]) {
+    cursor: pointer;
+    color: $mainColor;
+    font-weight: bold;
+    text-decoration: none;
+    &:hover {        
+        color: darken($mainColor, 10%);
+        text-decoration: underline;
+    }
+}

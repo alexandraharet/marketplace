@@ -5,9 +5,13 @@
     padding-bottom: 50px;
 }
 
+.filters {
+    margin-top: 1rem;
+}
+
 .card {
     margin: 20px 0;
-
+    
     i.fav {
         float: right;
         color: $mainColor;
@@ -23,15 +27,9 @@
         background-size: cover;
         border-radius: calc(.25rem - 1px)  calc(.25rem - 1px) 0 0;
     }
-    .price, .email a {
+    .price {
         color: $mainColor;
         font-weight: bold;
-        text-decoration: none;
-    }
-
-    .email a:hover {
-        color: darken($mainColor, 10%);
-        text-decoration: underline;
     }
 }
 

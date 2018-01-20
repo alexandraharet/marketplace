@@ -31,31 +31,31 @@ As a user I want to have access to an
 
 
 Each item will have these fields and a picture. When I
-// ● perform a search that has results ● , I’d like to be able to
-// ● view a list ●  of the items
-// ● listing all that information ● . Also I want to have the ability to
- ● order the listed items by title, description, price or email ● .
+// ● perform a search that has results, I’d like to be able to
+// ● view a list of the items
+// ● listing all that information. Also I want to have the ability to
+// ● order the listed items by title, description, price or email.
 
 Also, I want to be able to
-// ● have a favourite items list ● , so I want to be able to
-// ● select the items from the list and save them on my favourite list ● , which should be able to be
-// ● displayed on a modal containing all those items ●
-// ● showing only the picture and the title ● . I would like to be able to
-// ● open this modal by clicking on a button ●  that should be displayed in some place on the page where it’s easily accessible.
+// ● have a favourite items list, so I want to be able to
+// ● select the items from the list and save them on my favourite list, which should be able to be
+// ● displayed on a modal containing all those items
+// ● showing only the picture and the title. I would like to be able to
+// ● open this modal by clicking on a button that should be displayed in some place on the page where it’s easily accessible.
 
 In the favourite modal, I want to be able to
- ● search by title ●  and the possibility to
- ● remove the items from the favourite list without having to close the modal ● .
+ ● search by title and the possibility to
+ ● remove the items from the favourite list without having to close the modal.
 
 // The JSON with the items information contains 30 items.
-// ● The 30 items should NOT be displayed all at once ● . I’d like to
-// ● receive 5 items each time ●  (with
-// ● an initial load of 5 when the page is loaded ● ), so some pagination method should be implemented to view the remaining items
+// ● The 30 items should NOT be displayed all at once. I’d like to
+// ● receive 5 items each time (with
+// ● an initial load of 5 when the page is loaded), so some pagination method should be implemented to view the remaining items
 (clicking a button, with endless scroll... it’s up to you).
 
 Delivery requirements
 You can use any strategy you want to save the items as favourites.
-// ● This list doesn’t need to be persisted when you reload the page ● .
+// ● This list doesn’t need to be persisted when you reload the page.
 
 You’ll be able to find all the information of the items on the attached zip. It contains a
 JSON file with the items information (title, description, price, email, image) and the
