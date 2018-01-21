@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+.card,
+.card-block,
+.col-md-8,
+.col-md-4,
+.col-sm-8,
+.col-sm-4,
+.row {
+    -js-display: flex;
+}

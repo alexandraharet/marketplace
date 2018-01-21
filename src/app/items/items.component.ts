@@ -93,6 +93,11 @@ export class ItemsComponent implements OnInit {
     this.fetchData().subscribe((res: Response) => {
       const data = res.json();
       this.items = data.items;
+      let i = 1;
+      this.items.forEach(function(item) {
+        item.id = i;
+        i++;
+      });
       this.availableItems = this.items;
       this.itemsLoaded = true;
       this.displayItems();
