@@ -10,10 +10,12 @@ This app was built using the following technologies:
 
 ## App architecture
 The app consists of three components, nested as follows
-``` <ItemsComponent>
-        <FavouritesComponent></FavouritesComponent>
-        <SearchComponent></SearchComponent>
-    </ItemsComponent>
+
+``` 
+<ItemsComponent>
+    <FavouritesComponent></FavouritesComponent>
+    <SearchComponent></SearchComponent>
+</ItemsComponent>
 ```
 
 **The ItemsComponent**: displays the availableItems and offers sorting and 'add to favourites' functionality
