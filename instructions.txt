@@ -6,18 +6,17 @@ Below you’ll find the features, the requirements and the key points you should
 while developing.
 
 What we’ll evaluate
-● You are free to use any JavaScript libraries and/or frameworks you want.
-However, an MVC/MVVM style framework is encouraged.
-● IE8support is NOT needed. You can develop the application only taking into consideration IE9+ browsers (with ES5 support).
-● The use of ES6 features is allowed and encouraged (but you should use a
-transpiler to produce ES5 valid JavaScript).
-● The use of CSS processors (Sass, LESS...) is allowed and encouraged.
+// ● You are free to use any JavaScript libraries and/or frameworks you want.
+// However, an MVC/MVVM style framework is encouraged.
+// ● IE8support is NOT needed. You can develop the application only taking into consideration IE9+ browsers (with ES5 support).
+// ● The use of ES6 features is allowed and encouraged (but you should use a transpiler to produce ES5 valid JavaScript).
+// ● The use of CSS processors (Sass, LESS...) is allowed and encouraged.
 ● The following are a bonus points for the candidate:
-○ Code quality
+// ○ Code quality
 ○ Mobile support
-○ Application structure
+// ○ Application structure
 ○ Unit testing
-○ User Interface
+// ○ User Interface
 ○ Optimization (load times and rendering performance)
 
 What we want you to do

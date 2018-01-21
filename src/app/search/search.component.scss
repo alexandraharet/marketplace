@@ -3,3 +3,16 @@
 .input-group .btn {
     margin: 0;
 }
+
+.no-results {
+    text-align: center;
+    margin-top: 20px;
+    color: $errorColor;
+
+    img {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        max-width: 250px;
+        height: auto;
+    }
+}

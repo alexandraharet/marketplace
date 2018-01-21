@@ -10,10 +10,11 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col">
-        <h4 *ngIf="!results.length && searched">
-          No results found!
+    <div class="row" *ngIf="!results.length && searched">
+      <div class="col no-results">
+        <img src="./assets/images/no-results.png" alt="no results found">
+        <h4>
+          Ooop, no results found!<br>Try searchign for something else.
         </h4>
       </div>
     </div>
