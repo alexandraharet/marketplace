@@ -7,7 +7,7 @@ import { NgStyle, NgIf } from '@angular/common';
   styleUrls: ['./favourites.component.scss']
 })
 export class FavouritesComponent {
-  @Input() favourites: Array<any>;
+  @Input() favourites = [];
 
   hasFavourites() {
     return (this.favourites.length);

@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener, Output, EventEmitter } from '@angular/core';
-import { Http, Response, HttpModule } from '@angular/http';
+import { Http, Response } from '@angular/http';
 import { NgStyle, NgIf } from '@angular/common';
 
 @Component({
@@ -43,13 +43,11 @@ export class ItemsComponent implements OnInit {
   }
   
   sortBy(prop) {
-    
     if (prop === 'price') {
       this.availableItems.sort(function (a, b) {
         return a[prop] - b[prop];
       });
-    }
-    else {
+    } else {
       this.availableItems.sort(function (a, b) {
         if (a[prop].toLowerCase() < b[prop].toLowerCase()) {
           return -1;
@@ -60,7 +58,6 @@ export class ItemsComponent implements OnInit {
         return 0;
       });
     }
-
     this.displayItems();
   }
   
@@ -75,6 +72,7 @@ export class ItemsComponent implements OnInit {
   }
   
   toggleFavourites(item, event) {
+    console.log('here');
     if (event.target.classList.contains('isFav')) {
       const index = this.favourites.findIndex(k => item);
       this.favourites.splice(index, 1);
@@ -94,6 +92,8 @@ export class ItemsComponent implements OnInit {
       const data = res.json();
       this.items = data.items;
       let i = 1;
+      /* adding IDs to each item to enable differentiation between identical items,
+      which can be used when removing items from Favs list */
       this.items.forEach(function(item) {
         item.id = i;
         i++;

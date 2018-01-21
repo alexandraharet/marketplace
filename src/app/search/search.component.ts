@@ -17,6 +17,7 @@ export class SearchComponent {
   constructor(private http: Http) { }
   
   filterItems(string) {
+    string = string.toLowerCase();
     this.items.filter(item => {
       if (item.title.toLowerCase().includes(string) ||
       item.description.toLowerCase().includes(string) ||
@@ -34,7 +35,7 @@ export class SearchComponent {
   }
 
   getSearchString(event) {
-    this.searchString = document.getElementById('search')['value'].toLowerCase();
+    this.searchString = document.getElementById('search')['value'];
     if (event.keyCode === 13 || event.type === 'click') {
       this.results = [];
       if (!this.searchString) {

@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component, Input } from '@angular/core';
+import { NgStyle, NgIf } from '@angular/common';
 
 import { FavouritesComponent } from './favourites.component';
 
