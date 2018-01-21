@@ -10,14 +10,13 @@ This app was built using the following technologies:
 
 ## App architecture
 The app consists of three components, nested as follows
-<ItemsComponent>
-    <FavouritesComponent>
-    <SearchComponent>
+Markup: html <ItemsComponent>
+                <FavouritesComponent>
+            <SearchComponent>
 
-### The ItemsComponent*: displays the availableItems and offers sorting and 'add to favourites' functionality
-### The FavouritesComponent*: updates itself with the items that have been added or removed from the favourites array, in the parent (ItemsComponent)
-
-### The SearchComponent*: applies a filter to the items array and returns an array of results, which is updated in the parent (ItemsComponent) view.
+**The ItemsComponent**: displays the availableItems and offers sorting and 'add to favourites' functionality
+**The FavouritesComponent**: updates itself with the items that have been added or removed from the favourites array, in the parent (ItemsComponent)
+**The SearchComponent**: applies a filter to the items array and returns an array of results, which is updated in the parent (ItemsComponent) view.
 
 The app implements the following functionality:
 
