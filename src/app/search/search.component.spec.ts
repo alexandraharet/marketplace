@@ -59,7 +59,7 @@ describe('SearchComponent', () => {
     expect(component.results).toEqual(mockItems);
   });
   
-  it('should return emptry results then none of the mock items contain the search term', () => {
+  it('should return empty results when none of the mock items contain the search term', () => {
     // arrange
     component.items = mockItems;
     
