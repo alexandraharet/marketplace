@@ -8,6 +8,7 @@ import { By } from '@angular/platform-browser';
 import { ItemsComponent } from './items.component';
 import { FavouritesComponent } from '../favourites/favourites.component';
 import { SearchComponent } from './../search/search.component';
+import { GetDataService } from '../get-data.service';
 
 describe('ItemsComponent', () => {
   let component: ItemsComponent;
