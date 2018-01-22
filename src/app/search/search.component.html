@@ -3,14 +3,14 @@
     <div class="row">
       <div class="col">
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search for..." id="search" (keyup)="getSearchString($event)"/>
+          <input type="text" class="form-control" placeholder="Search for..." (keyup.enter)="search($event, items)"/>
           <span class="input-group-btn">
-            <button class="btn btn-default" type="button" (click)="getSearchString($event)">Go!</button>
+            <button class="btn btn-default" type="button" (click)="search($event, items)">Go!</button>
           </span>
         </div>
       </div>
     </div>
-    <div class="row" *ngIf="!results.length && searched">
+    <div class="row" *ngIf="searched && !hasResults">
       <div class="col no-results">
         <img src="./assets/images/no-results.png" alt="no results found">
         <h4>

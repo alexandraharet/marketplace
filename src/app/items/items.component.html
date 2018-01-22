@@ -1,5 +1,6 @@
 <app-favourites [favourites]="favourites"></app-favourites>
-<app-search (hasResults)="hasResults($event)" (getResults)="getResults($event)" [items]="items"></app-search>
+<app-search (getResults)="getResults()" [items]="items"></app-search>
+<!-- (hasResults)="hasResults($event)" -->
 
 <section id="itemsContainer">
   <div class="container">

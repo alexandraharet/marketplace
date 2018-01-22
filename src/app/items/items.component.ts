@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener, Output, EventEmitter } from '@angular/
 import { Http, Response } from '@angular/http';
 import { NgStyle, NgIf } from '@angular/common';
 import { GetDataService } from '../get-data.service';
+import { SearchService } from '../search.service';
 
 @Component({
   selector: 'app-items',
@@ -28,6 +29,7 @@ export class ItemsComponent implements OnInit {
   constructor(
     private http: Http,
     public dataService: GetDataService,
+    public searchService: SearchService
   ) {}
 
   displayItems() {
@@ -63,18 +65,18 @@ export class ItemsComponent implements OnInit {
     this.displayItems();
   }
 
-  getResults(val) {
-    this.availableItems = val;
+  getResults() {
+    this.availableItems = this.searchService.getResults();
     this.displayItems();
   }
 
   hasResults(val) {
     this.searchResults = val;
+    console.log(this.searchResults);
     return val;
   }
 
   toggleFavourites(item, event) {
-    console.log('here');
     if (event.target.classList.contains('isFav')) {
       const index = this.favourites.findIndex(k => item);
       this.favourites.splice(index, 1);

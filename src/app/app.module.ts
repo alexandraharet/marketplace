@@ -8,6 +8,7 @@ import { ItemsComponent } from './items/items.component';
 import { SearchComponent } from './search/search.component';
 import { FavouritesComponent } from './favourites/favourites.component';
 import { GetDataService } from './get-data.service';
+import { SearchService } from './search.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { GetDataService } from './get-data.service';
     HttpModule,
     FormsModule
   ],
-  providers: [GetDataService],
+  providers: [GetDataService, SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
