@@ -9,3 +9,8 @@
 .row {
     -js-display: flex;
 }
+
+body.modal-open {
+    overflow: initial;
+    padding-right: 0 !important;
+}

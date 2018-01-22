@@ -23,7 +23,7 @@ export class SearchComponent {
   search(event) {
     this.searchService.getSearchString(event, this.items);
     this.results = this.searchService.getResults();
-    this.searched = this.searchService.getSearchStartus();
+    this.searched = this.searchService.getSearchStatus();
     if (this.results.length) {
       this.hasResults = true;
       this.getResults.emit();

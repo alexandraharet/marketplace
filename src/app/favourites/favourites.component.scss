@@ -13,7 +13,7 @@
 
 .favs-sticky {
     width: 100%;
-    background-color: #fff;
+    background-color: transparentize($color: #fff, $amount: 0.3);
     text-align: center;
     position: fixed;
     top: 0;

@@ -36,7 +36,7 @@ export class SearchService {
     });
   }
 
-  getSearchStartus() {
+  getSearchStatus() {
     return this.searched;
   }
 
