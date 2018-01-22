@@ -20,8 +20,8 @@ export class SearchComponent {
     private searchService: SearchService
   ) { }
 
-  search(event, items, props) {
-    this.searchService.getSearchString(event, items, props);
+  search(event) {
+    this.searchService.getSearchString(event, this.items);
     this.results = this.searchService.getResults();
     this.searched = this.searchService.getSearchStartus();
     if (this.results.length) {

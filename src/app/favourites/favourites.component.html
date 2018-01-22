@@ -18,7 +18,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <app-search (getResults)="getResults()" [items]="items" *ngIf="hasFavourites()" [props]="title"></app-search>
+            <app-search (getResults)="getResults()" [items]="items" *ngIf="hasFavourites()"></app-search>
 
             <div *ngIf="!hasFavourites()" class="noFavs">
               Looks like haven't added any favourites yet!

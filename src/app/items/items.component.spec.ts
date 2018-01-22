@@ -9,6 +9,7 @@ import { ItemsComponent } from './items.component';
 import { FavouritesComponent } from '../favourites/favourites.component';
 import { SearchComponent } from '../search/search.component';
 import { GetDataService } from '../get-data.service';
+import { SearchService } from '../search.service';
 
 describe('ItemsComponent', () => {
   let component: ItemsComponent;
@@ -21,7 +22,7 @@ describe('ItemsComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ ItemsComponent, FavouritesComponent, SearchComponent ],
       imports: [ HttpModule ],
-      providers: [ GetDataService ]
+      providers: [ GetDataService, SearchService ]
     })
     .compileComponents();
   }));
