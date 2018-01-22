@@ -2,13 +2,24 @@
 @import '../items/items.component';
 
 .container {
-    text-align: center;
+    text-align: left;
     padding: 20px 0 0;
 }
 
 .btn {
     margin-top: 0;
-    margin-bottom: 40px;
+    margin-bottom: 0;
+}
+
+.favs-sticky {
+    width: 100%;
+    background-color: #fff;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    padding: 20px 0;
 }
 
 .fav-w {
@@ -20,9 +31,23 @@
     margin: 40px auto;
 }
 
+.card-title {
+    position: relative;
+    max-width: 80%;
+    .fa-trash {
+        position: absolute;
+        top: 50%;
+        right: -25%;
+        transform: translateY(-50%);
+        color: $mainColor;
+        cursor: pointer;
+    }
+}
+
 .card .card-img {
     min-height: 150px;
 }
+
 
 @media (min-width: 768px) {
     .card .card-img {

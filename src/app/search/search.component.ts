@@ -10,16 +10,18 @@ import { SearchService } from '../search.service';
 export class SearchComponent {
   @Output() getResults = new EventEmitter<Object>();
   @Input() items: Array<any>;
+  @Input() props: String;
   results = [];
   hasResults: Boolean;
+  searched: Boolean;
 
   constructor (
     private http: Http,
     private searchService: SearchService
   ) { }
 
-  search(event, items) {
-    this.searchService.getSearchString(event, items);
+  search(event, items, props) {
+    this.searchService.getSearchString(event, items, props);
     this.results = this.searchService.getResults();
     this.searched = this.searchService.getSearchStartus();
     if (this.results.length) {

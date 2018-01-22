@@ -1,6 +1,10 @@
-<app-favourites [favourites]="favourites"></app-favourites>
-<app-search (getResults)="getResults()" [items]="items"></app-search>
-<!-- (hasResults)="hasResults($event)" -->
+<app-favourites [items]="favourites" (remove)="removeFromFavs($event)"></app-favourites>
+
+<section>
+  <div class="container">
+    <app-search (getResults)="getResults()" [items]="items" [props]="'title, description, email, price'"></app-search>
+  </div>
+</section>
 
 <section id="itemsContainer">
   <div class="container">
@@ -14,7 +18,7 @@
         </p>
       </div>
     </div>
-    <div class="card" *ngFor="let item of visibleItems">
+    <div class="card" *ngFor="let item of visibleItems" id="item-{{item.id}}">
       <div class="row">
         <div class="col-md-4">
           <div class="card-img" [ngStyle]="{'background-image': 'url(./assets/images/' + item.image +')' }"></div>

@@ -144,37 +144,4 @@ describe('ItemsComponent', () => {
     expect(component.availableItems).toEqual(expectedResult);
   });
 
-  // fit('should add the isFav class to an item when icon is clicked and item is not already in favourites', async() => {
-  //   // arrange
-  //   spyOn(component, 'toggleFavourites');
-  //   console.log(favIcon);
-
-  //   // act
-  //   favIcon.triggerEventHandler('click', null);
-  //   tick();
-
-  //   // assert
-  //   expect(component.toggleFavourites).toHaveBeenCalled();
-  //   expect(favIcon.classList.contains('isFav')).toBe(true);
-  //   console.log(favIcon);
-  // });
-
-  // it('should remove the idFav class from an item when icon is clicked and item is already in favourites', fakeAsync(() => {
-  //   // arrange
-  //   spyOn(component, 'toggleFavourites');
-  //   favIcon.classList.add('isFav');
-  //   console.log(favIcon);
-
-  //   // act
-  //   favIcon.triggerEventHandler('click', null);
-  //   favIcon.click();
-  //   fixture.whenStable().then(() => {
-  //     console.log(favIcon);
-  //     // expect(component.toggleFavourites).toHaveBeenCalled();
-  //     // expect(favIcon.classList.contains('isFav')).toBe(false);
-  //   });
-
-  //   // assert
-  // }));
-
 });

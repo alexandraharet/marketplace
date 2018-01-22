@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, HostListener, Output, Input, EventEmitter } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { NgStyle, NgIf } from '@angular/common';
 import { GetDataService } from '../get-data.service';
@@ -13,6 +13,7 @@ import { SearchService } from '../search.service';
 export class ItemsComponent implements OnInit {
   @Output() getFavourites = new EventEmitter<Object>();
 
+  itemToRemove: Object;
   data: Array<any>;
   items: Array<any>;
   availableItems: Array<any>;
@@ -30,7 +31,7 @@ export class ItemsComponent implements OnInit {
     private http: Http,
     public dataService: GetDataService,
     public searchService: SearchService
-  ) {}
+  ) { }
 
   displayItems() {
     this.limit = this.pageLimit * this.pagesShown;
@@ -72,7 +73,6 @@ export class ItemsComponent implements OnInit {
 
   hasResults(val) {
     this.searchResults = val;
-    console.log(this.searchResults);
     return val;
   }
 
@@ -89,9 +89,18 @@ export class ItemsComponent implements OnInit {
     event.target.classList.toggle('fa-heart-o');
   }
 
+  removeFromFavs(item) {
+    const index = this.items.indexOf(item);
+    const el = document.getElementById('item-' + index).querySelectorAll('i')[0];
+    el.classList.toggle('isFav');
+    el.classList.toggle('fa-heart');
+    el.classList.toggle('fa-heart-o');
+  }
+
   ngOnInit() {
     this.dataService.makeRequest().then(() => {
       this.items = this.dataService.items;
+
       this.availableItems = this.items;
       this.itemsLoaded = true;
       this.displayItems();

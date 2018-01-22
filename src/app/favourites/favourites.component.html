@@ -1,10 +1,13 @@
+<section class="favs-sticky">
+  <button type="button" class="btn" data-toggle="modal" data-target="#exampleModalLong">
+    View Favourite Items
+    <i class="fa fa-heart-o fav-w" aria-hidden="true" *ngIf="!hasFavourites()"></i>
+    <i class="fa fa-heart fav-w" aria-hidden="true" *ngIf="hasFavourites()"></i>
+  </button>
+</section>
+
 <section>
   <div class="container">
-    <button type="button" class="btn" data-toggle="modal" data-target="#exampleModalLong">
-      View Favourite Items
-      <i class="fa fa-heart-o fav-w" aria-hidden="true" *ngIf="!favourites.length"></i>
-      <i class="fa fa-heart fav-w" aria-hidden="true" *ngIf="favourites.length"></i>
-    </button>
     <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -15,18 +18,22 @@
             </button>
           </div>
           <div class="modal-body">
+            <app-search (getResults)="getResults()" [items]="items" *ngIf="hasFavourites()" [props]="title"></app-search>
+
             <div *ngIf="!hasFavourites()" class="noFavs">
               Looks like haven't added any favourites yet!
             </div>
-            <div class="card" *ngFor="let item of favourites">
+            <div class="card" *ngFor="let item of visibleItems">
               <div class="row">
                 <div class="col-sm-4">
-                  <div class="card-img" [ngStyle]="{'background-image': 'url(./assets/images/' + item.image +')' }"></div>
+                  <div class="card-img" [ngStyle]="{'background-image': 'url(./assets/images/' + item.image +')' }">
+                  </div>
                 </div>
                 <div class="col-sm-8">
                   <div class="card-block">
                     <h4 class="card-title">
                       {{item.title}}
+                      <i class="fa fa-trash" aria-hidden="true" (click)="removeFromFavourites(item)"></i>
                     </h4>
                   </div>
                 </div>

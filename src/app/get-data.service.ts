@@ -20,6 +20,10 @@ export class GetDataService {
                 res => {
                     const data = res.json();
                     this.items = data.items;
+                    /* addes unique IDs to each item to idenfify between identical objects; this will be used in removing items from Favourites list. */
+                    this.items.forEach((item, index) => {
+                        item['id'] = index;
+                    });
                     resolve();
                 },
                 msg => {
