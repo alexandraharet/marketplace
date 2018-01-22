@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener, Output, EventEmitter } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { NgStyle, NgIf } from '@angular/common';
+import { GetDataService } from '../get-data.service';
 
 @Component({
   selector: 'app-items',
@@ -10,7 +11,7 @@ import { NgStyle, NgIf } from '@angular/common';
 
 export class ItemsComponent implements OnInit {
   @Output() getFavourites = new EventEmitter<Object>();
-  
+
   data: Array<any>;
   items: Array<any>;
   availableItems: Array<any>;
@@ -23,17 +24,18 @@ export class ItemsComponent implements OnInit {
   itemsLoaded = false;
   searchResults = false;
   favourites = [];
-  
-  fetchData() {
-    return this.http.request('./assets/items.json');
-  }
-  
+
+  constructor(
+    private http: Http,
+    public dataService: GetDataService,
+  ) {}
+
   displayItems() {
     this.limit = this.pageLimit * this.pagesShown;
     this.visibleItems = this.availableItems.slice(0, this.limit);
     this.loading = false;
   }
-  
+
   loadNewPage() {
     setTimeout(() => {
       this.loading = false;
@@ -41,7 +43,7 @@ export class ItemsComponent implements OnInit {
       this.displayItems();
     }, 1000);
   }
-  
+
   sortBy(prop) {
     if (prop === 'price') {
       this.availableItems.sort(function (a, b) {
@@ -60,17 +62,17 @@ export class ItemsComponent implements OnInit {
     }
     this.displayItems();
   }
-  
+
   getResults(val) {
     this.availableItems = val;
     this.displayItems();
   }
-  
+
   hasResults(val) {
     this.searchResults = val;
     return val;
   }
-  
+
   toggleFavourites(item, event) {
     console.log('here');
     if (event.target.classList.contains('isFav')) {
@@ -84,30 +86,20 @@ export class ItemsComponent implements OnInit {
     event.target.classList.toggle('fa-heart');
     event.target.classList.toggle('fa-heart-o');
   }
-  
-  constructor( private http: Http ) {}
-  
+
   ngOnInit() {
-    this.fetchData().subscribe((res: Response) => {
-      const data = res.json();
-      this.items = data.items;
-      let i = 1;
-      /* adding IDs to each item to enable differentiation between identical items,
-      which can be used when removing items from Favs list */
-      this.items.forEach(function(item) {
-        item.id = i;
-        i++;
-      });
+    this.dataService.makeRequest().then(() => {
+      this.items = this.dataService.items;
       this.availableItems = this.items;
       this.itemsLoaded = true;
       this.displayItems();
     });
   }
-  
+
   moreItemsToShow() {
     return this.visibleItems.length < this.availableItems.length;
   }
-  
+
   onClick() {
     if (this.moreItemsToShow()) {
       this.loading = true;
