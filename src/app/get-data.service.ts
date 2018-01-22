@@ -12,21 +12,6 @@ export class GetDataService {
         this.loading = false;
     }
 
-    // makeRequest() {
-    //     let promise = new Promise((resolve, reject) => {
-    //         let apiURL = `${this.apiRoot}?term=${term}&media=music&limit=20`;
-    //         this.http.get('./assets/items.json')
-    //         .toPromise()
-    //         .then(
-    //             res => { // Success
-    //                 console.log(res.json());
-    //                 resolve();
-    //             }
-    //         );
-    //     });
-    //     return promise;
-    // }
-
     makeRequest() {
         let promise = new Promise((resolve, reject) => {
             this.http.get('./assets/items.json')
@@ -37,15 +22,11 @@ export class GetDataService {
                     this.items = data.items;
                     resolve();
                 },
-                msg => { // Error
+                msg => {
+                    console.log(msg);
                     reject(msg);
                 })
             });
             return promise;
-            // this.http.request('./assets/items.json')
-            // .subscribe((res: Response) => {
-            //     this.data = res.json();
-            //     //this.loading = false;
-            // });
         }
     }
