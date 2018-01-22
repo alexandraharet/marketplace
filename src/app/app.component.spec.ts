@@ -3,6 +3,7 @@ import { AppComponent } from './app.component';
 import { ItemsComponent } from './items/items.component';
 import { FavouritesComponent } from './favourites/favourites.component';
 import { SearchComponent } from './search/search.component';
+import { GetDataService } from './get-data.service';
 import { HttpModule } from '@angular/http';
 
 describe('AppComponent', () => {
@@ -16,7 +17,8 @@ describe('AppComponent', () => {
       ],
       imports: [
         HttpModule
-      ]
+      ],
+      providers: [ GetDataService ]
     }).compileComponents();
   }));
   it('should create the app', async(() => {
