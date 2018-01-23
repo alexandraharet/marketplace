@@ -13,7 +13,9 @@ The app consists of three components (nested as depicted below), and two service
 
 ```
 <ItemsComponent>
-    <FavouritesComponent></FavouritesComponent>
+    <FavouritesComponent>
+        <SearchComponent></SearchComponent>
+    </FavouritesComponent>
     <SearchComponent></SearchComponent>
 </ItemsComponent>
 ```
