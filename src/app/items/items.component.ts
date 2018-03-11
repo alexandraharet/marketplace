@@ -56,11 +56,11 @@ export class ItemsComponent implements OnInit {
       this.availableItems.sort(function (a, b) {
         if (a[prop].toLowerCase() < b[prop].toLowerCase()) {
           return -1;
-        }
-        if (a[prop].toLowerCase() > b[prop].toLowerCase()) {
+        } else if (a[prop].toLowerCase() > b[prop].toLowerCase()) {
           return 1;
+        } else {
+          return 0;
         }
-        return 0;
       });
     }
     this.displayItems();
