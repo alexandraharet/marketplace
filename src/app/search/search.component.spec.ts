@@ -66,7 +66,7 @@ describe('SearchComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  fdescribe('search', () => {
+  describe('search', () => {
     beforeEach(() => {
       const event = 'mockEvent';
     });
