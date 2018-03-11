@@ -13,14 +13,15 @@ export class GetDataService {
     }
 
     makeRequest() {
-        let promise = new Promise((resolve, reject) => {
+        const promise = new Promise((resolve, reject) => {
             this.http.get('./assets/items.json')
             .toPromise()
             .then(
                 res => {
                     const data = res.json();
                     this.items = data.items;
-                    /* addes unique IDs to each item to idenfify between identical objects; this will be used in removing items from Favourites list. */
+                    /* addes unique IDs to each item to idenfify between identical objects;
+                    this will be used in removing items from Favourites list. */
                     this.items.forEach((item, index) => {
                         item['id'] = index;
                     });
@@ -29,7 +30,7 @@ export class GetDataService {
                 msg => {
                     console.log(msg);
                     reject(msg);
-                })
+                });
             });
             return promise;
         }
